@@ -9,7 +9,7 @@ public class Stock {
 	private List<Producto> listaProductos;
 	
 	public Stock() {
-		listaProductos = new LinkedList<Producto>();
+		listaProductos = new ArrayList<Producto>();
 	}
 	
 	public void agregar(Producto p) {
@@ -74,9 +74,14 @@ public class Stock {
 	}
 	
 	public void ordenarPorCodigo() {
-		Collections.sort(listaProductos);
+		ComparatorCodigo comparadorPorCodigo = new ComparatorCodigo();
+		Collections.sort(listaProductos,comparadorPorCodigo);
 	}
 	
+	public void ordenarPorCantidad() {
+		ComparatorCantidad comparadorPorCantidad = new ComparatorCantidad();
+		Collections.sort(listaProductos,comparadorPorCantidad);
+	}
 }
 
 
